@@ -35,8 +35,9 @@ const webRouter = createBrowserRouter([
         element: <AppliedJobs></AppliedJobs>,
       },
       {
-        path: "/statistics",
+        path: "/statistics/:id",
         element: <Statistics></Statistics>,
+        loader: () => fetch("/jobs.json"),
       },
     ],
   },
