@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import CategoryBox from "./CategoryBox";
+import CategoryCard from "./CategoryCard";
 const JobsCategory = ({ categoriesData }) => {
   // console.log(categoriesData);
   // console.log(typeof categoriesData);
@@ -13,10 +13,10 @@ const JobsCategory = ({ categoriesData }) => {
       </p>
       <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {categoriesData.map((categoryItem) => (
-          <CategoryBox
+          <CategoryCard
             key={categoryItem.id}
             categoryItem={categoryItem}
-          ></CategoryBox>
+          ></CategoryCard>
         ))}
       </div>
     </div>

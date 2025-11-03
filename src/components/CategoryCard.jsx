@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-const CategoryBox = ({ categoryItem }) => {
+const CategoryCard = ({ categoryItem }) => {
   const { logo, category_name, availability } = categoryItem;
   return (
     <>
@@ -13,8 +13,8 @@ const CategoryBox = ({ categoryItem }) => {
     </>
   );
 };
-CategoryBox.propTypes = {
+CategoryCard.propTypes = {
   categoryItem: PropTypes.object,
 };
 
-export default CategoryBox;
+export default CategoryCard;

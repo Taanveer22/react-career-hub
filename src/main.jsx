@@ -17,7 +17,18 @@ const webRouter = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("/categories.json"),
+        loader: async () => {
+          //fetch categories data
+          const categoriesResponse = await fetch("/categories.json");
+          const categoriesData = await categoriesResponse.json();
+
+          //fetch jobs data
+          const jobsResponse = await fetch("/jobs.json");
+          const jobsData = await jobsResponse.json();
+
+          // return data to home component
+          return { categoriesData, jobsData };
+        },
       },
       {
         path: "/appliedJobs",

@@ -4,13 +4,15 @@ import FeaturedJobs from "../components/FeaturedJobs";
 import JobsCategory from "../components/JobsCategory";
 
 const Home = () => {
-  const categoriesData = useLoaderData();
+  const { categoriesData, jobsData } = useLoaderData();
+  // console.log(categoriesData);
+  // console.log(jobsData);
 
   return (
     <div>
       <Banner></Banner>
       <JobsCategory categoriesData={categoriesData}></JobsCategory>
-      <FeaturedJobs></FeaturedJobs>
+      <FeaturedJobs jobsData={jobsData}></FeaturedJobs>
     </div>
   );
 };
