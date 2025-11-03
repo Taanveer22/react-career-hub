@@ -42,7 +42,9 @@ const Header = () => {
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-3xl font-bold">Career Hub</a>
+          <div>
+            <img src={`https://i.ibb.co.com/hRFNQj0t/Career-Hub.png`}></img>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex lg:gap-5">
           <ul className="menu menu-horizontal px-1">{links}</ul>

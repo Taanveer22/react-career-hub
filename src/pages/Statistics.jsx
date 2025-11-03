@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { setToLocalStorage } from "../utilities";
 
 const Statistics = () => {
   const jobsData = useLoaderData();
@@ -20,8 +21,6 @@ const Statistics = () => {
     }
   }, [jobsData, convertedId]);
 
-  console.log(jobDetail);
-
   const {
     job_description,
     job_responsibility,
@@ -31,6 +30,12 @@ const Statistics = () => {
     job_title,
     contact_information,
   } = jobDetail || {};
+
+  // console.log(jobDetail);
+
+  const handleSetToAppliedJobs = (jobDetail) => {
+    setToLocalStorage(jobDetail);
+  };
 
   return (
     <div>
@@ -75,7 +80,12 @@ const Statistics = () => {
               <p>Address : {contact_information?.address}</p>
             </div>
           </div>
-          <button className="btn btn-primary">Apply Now</button>
+          <button
+            onClick={() => handleSetToAppliedJobs(jobDetail)}
+            className="btn btn-primary"
+          >
+            Apply Now
+          </button>
         </div>
       </section>
     </div>

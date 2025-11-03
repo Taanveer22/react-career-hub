@@ -7,6 +7,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import AppliedJobs from "./pages/AppliedJobs";
 import Statistics from "./pages/Statistics";
+import { ToastContainer } from "react-toastify";
 
 const webRouter = createBrowserRouter([
   {
@@ -46,5 +47,6 @@ const webRouter = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={webRouter}></RouterProvider>
+    <ToastContainer></ToastContainer>
   </React.StrictMode>
 );

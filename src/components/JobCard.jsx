@@ -1,6 +1,10 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-const JobCard = ({ jobItem }) => {
+import { Link, useLocation } from "react-router-dom";
+import { FaTrash } from "react-icons/fa";
+
+const JobCard = ({ jobItem, handleDeleteFromAppliedJobs }) => {
+  const { pathname } = useLocation();
+  // console.log(pathname);
   const {
     id,
     logo,
@@ -12,8 +16,8 @@ const JobCard = ({ jobItem }) => {
     salary,
   } = jobItem;
   return (
-    <div>
-      <div className="card bg-gray-300 shadow-sm h-80">
+    <div className="card bg-gray-300 shadow-sm h-80 relative">
+      <div>
         <figure>
           <img className="w-28 pt-5" src={logo} />
         </figure>
@@ -35,13 +39,22 @@ const JobCard = ({ jobItem }) => {
           </Link>
         </div>
       </div>
-    
+
+      {pathname === "/appliedJobs" && (
+        <div
+          onClick={() => handleDeleteFromAppliedJobs(id)}
+          className="absolute -top-5 -right-5 text-red-500 p-3 rounded-full bg-gray-500"
+        >
+          <FaTrash size={30}></FaTrash>
+        </div>
+      )}
     </div>
   );
 };
 
 JobCard.propTypes = {
   jobItem: PropTypes.object,
+  handleDeleteFromAppliedJobs: PropTypes.func,
 };
 
 export default JobCard;
